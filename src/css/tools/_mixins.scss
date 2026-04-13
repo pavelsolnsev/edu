@@ -1,0 +1,127 @@
+//Функции для работы с компонентнами
+@use 'sass:math';
+
+@function rem($px) {
+  @if $px == 0 {
+    @return 0;
+  }
+  @return $px / 16 + rem;
+}
+
+@function padding($px) {
+  @if $px == 0 {
+    @return 0;
+  }
+  @return #{'var(--a-padding--x' + $px / 4 + ')'};
+}
+
+@function padding2($vpx, $hpx) {
+  @return #{padding($vpx) + ' ' + padding($hpx)};
+}
+
+@function padding4($top, $left, $bottom, $right) {
+  @return #{padding($top) + ' ' + padding($left) + ' ' + padding($bottom) + ' ' + padding($right)};
+}
+
+@function margin($px) {
+  @if $px == 0 {
+    @return 0;
+  }
+  @return #{'var(--a-margin--x' + $px / 4 + ')'};
+}
+
+@function margin2($vpx, $hpx) {
+  @return #{margin($vpx) + ' ' + margin($hpx)};
+}
+
+@function margin4($top, $left, $bottom, $right) {
+  @return #{margin($top) + ' ' + margin($left) + ' ' + margin($bottom) + ' ' + margin($right)};
+}
+
+@function bradius($px) {
+  @if $px == 0 {
+    @return 0;
+  }
+  @return #{'var(--a-borderRadius--' + $px + 'px)'};
+}
+
+@function color($c) {
+  @return #{'var(--q-' + $c + ')'};
+}
+
+@mixin wh($width, $height) {
+  width: rem($width);
+  height: rem($height);
+}
+
+@mixin adaptivePadding($lg, $md) {
+  padding: padding2($lg, 0);
+  @media screen and (max-width: $breakpoint-md) {
+    padding: padding2($md, 0);
+  }
+}
+
+@mixin typographySize($size, $lh) {
+  #{'&--' + $size + '-' + $lh} {
+    font-size: rem($size);
+    line-height: rem($lh);
+  }
+}
+
+@mixin typographyWeight($weight) {
+  #{'&--' + $weight} {
+    font-weight: $weight;
+  }
+}
+
+@mixin typoValues($value) {
+  font-size: rem(map-get($value, size));
+  line-height: rem(map-get($value, line-height));
+  letter-spacing: map-get($value, letter);
+  font-weight: map-get($value, weight);
+}
+
+@mixin typoClasses($type) {
+  @each $name, $value in map-get($typographics, $type) {
+    @if map-get($value, tag) == 1 {
+      #{'.text-' + $name}, #{$name} {
+        @include typoValues($value);
+      }
+    } @else {
+      @if map-get($value, weight) == 0 {
+        #{'.text-' + $name} {
+          @include typoValues(map-merge($value, (weight: 400)));
+        }
+        @each $weight-key, $weight-value in $text-weights {
+          #{'.text-' + $weight-key + '-' + $name} {
+            @include typoValues(map-merge($value, ( weight: $weight-value )));
+          }
+        }
+      } @else {
+        #{'.text-' + $name} {
+          @include typoValues($value);
+        }
+      }
+    }
+  }
+}
+
+@mixin typoClass($class) {
+  @if (map-has-key($typographics, base)) {
+    $_typo_base: map-get($typographics, base);
+    @if (map-has-key($_typo_base, $class)) {
+      @include typoValues(map-get($_typo_base, $class));
+    }
+  }
+  @if (map-has-key($typographics, mobile)) {
+    $_typo_mobile: map-get($typographics, mobile);
+    @if (map-has-key($_typo_mobile, $class)) {
+      @media screen and (max-width: $breakpoint-xs) {
+        @include typoValues(map-get($_typo_mobile, $class));
+      }
+    }
+  }
+  @if (map-has-key($text-weights, $class)) {
+    font-weight: map-get($text-weights, $class);
+  }
+}

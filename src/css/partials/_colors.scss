@@ -1,0 +1,8 @@
+@each $key, $val in $app-colors {
+  #{'.text-' + $key} {
+    color: #{'var(--q-' + $key + ') !important'};
+  }
+  #{'.bg-' + $key} {
+    background-color: #{'var(--q-' + $key + ') !important'};
+  }
+}

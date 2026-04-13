@@ -1,0 +1,60 @@
+@mixin typography() {
+  // Сюда добавлять новые размеры шрифтов
+  // Будут доступны в классах вида:
+  // font--72-80, font-mobile--72-80, font--tablet-72-80
+  @include typographySize(72, 80);
+  @include typographySize(48, 48);
+  @include typographySize(40, 48);
+  @include typographySize(32, 40);
+  @include typographySize(24, 32);
+  @include typographySize(22, 30);
+  @include typographySize(18, 24);
+  @include typographySize(18, 22);
+  @include typographySize(16, 24);
+  @include typographySize(16, 22);
+  @include typographySize(14, 24);
+  @include typographySize(14, 22);
+  @include typographySize(14, 18);
+  @include typographySize(12, 24);
+  @include typographySize(12, 18);
+  @include typographySize(12, 16);
+  @include typographySize(11, 16);
+  @include typographyWeight(600);
+  @include typographyWeight(500);
+  @include typographyWeight(400);
+  @include typographyWeight(300);
+  @include typographyWeight(100);
+}
+
+.font {
+  @include typography();
+}
+
+.font-mobile {
+  @media screen and (max-width: $breakpoint-xs) {
+    @include typography();
+  }
+}
+
+.font-tablet {
+  @media screen and (min-width: $breakpoint-sm-min) and (max-width: $breakpoint-sm) {
+    @include typography();
+  }
+}
+
+
+
+@include typoClasses(base);
+@media screen and (max-width: $breakpoint-xs) {
+  @include typoClasses(mobile);
+  h1, h2, h3, h4, h5, h6 {
+    hyphens: auto;
+  }
+}
+
+@each $weight, $value in $text-weights {
+  #{'.text-' + $weight} {
+    font-weight: $value;
+  }
+}
+

@@ -1,0 +1,58 @@
+// Generates classes .a-[p|m][a|x|y|t|b|l|r]-[px] for padding/margin
+// Using root vars. Class usage:
+// Class name beginning with .a-
+// Letter 3: p - padding, m - margin
+// Letter 4: a - all, x - horizontal (left/right), y - vertical (top/bottom)
+//           t - top, b - bottom, l - left, r - right
+// [px] - size in px from figma (this automatically converts to steps and using root vars)
+@for $i from 0 through 20 {
+  // Padding classes
+  #{'.a-pa-' + $i * 4} {
+    padding: padding($i * 4);
+  }
+  #{'.a-px-' + $i * 4} {
+    padding-right: padding($i * 4);
+    padding-left: padding($i * 4);
+  }
+  #{'.a-py-' + $i * 4} {
+    padding-top: padding($i * 4);
+    padding-bottom: padding($i * 4);
+  }
+  #{'.a-pt-' + $i * 4} {
+    padding-top: padding($i * 4);
+  }
+  #{'.a-pb-' + $i * 4} {
+    padding-bottom: padding($i * 4);
+  }
+  #{'.a-pl-' + $i * 4} {
+    padding-left: padding($i * 4);
+  }
+  #{'.a-pr-' + $i * 4} {
+    padding-right: padding($i * 4);
+  }
+
+  // Margin classes
+  #{'.a-ma-' + $i * 4} {
+    margin: margin($i * 4);
+  }
+  #{'.a-mx-' + $i * 4} {
+    margin-right: margin($i * 4);
+    margin-left: margin($i * 4);
+  }
+  #{'.a-my-' + $i * 4} {
+    margin-top: margin($i * 4);
+    margin-bottom: margin($i * 4);
+  }
+  #{'.a-mt-' + $i * 4} {
+    margin-top: margin($i * 4);
+  }
+  #{'.a-mb-' + $i * 4} {
+    margin-bottom: margin($i * 4);
+  }
+  #{'.a-ml-' + $i * 4} {
+    margin-left: margin($i * 4);
+  }
+  #{'.a-mr-' + $i * 4} {
+    margin-right: margin($i * 4);
+  }
+}

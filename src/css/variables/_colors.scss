@@ -1,0 +1,53 @@
+//$
+$app-colors: (
+  // Основная палитра
+  dark: #2e2e2e,
+  gray: #4b4b4b,
+  blue-gray: #f8f8fa,
+  white: #fff,
+  blue-button: #4650f1,
+  purple: #7746ff,
+
+  // Вспомогательные палитры
+  blue-bg: #c7e2f5,
+  pink: #fbe6e6,
+  yellow: #ffeab4,
+  dark-bluer: #b1c7e7,
+  green: #388e3c,
+  orange: #e0ac23,
+  cyan: #71c6f1,
+  light-blue-table: #3f87e3,
+  dark-blue-table: #53759a,
+  bright-orange: #e57836,
+  blue-green: #428293,
+  light-gray: #f1f1f1,
+  stroke: #a7a7a7,
+  light-blue: #e5ebf2,
+  orange-light: #fcccaf,
+
+  // Дубль палитры Quasar
+  primary: color(blue-button),
+  secondary: color(dark-bluer),
+  accent: color(purple),
+  dark-page: color(step-value),
+  positive: color(green),
+  negative: color(bright-orange),
+  info: color(cyan),
+  warning: color(orange-light),
+
+  // старая палитра
+  black: #000,
+  step-value: #161617,
+  red: #eb5757,
+  control-bg: #fafafa,
+  sidebar-bg: #f3f8fe,
+  light-yellow: #fffbe8,
+  inherit: inherit,
+  transparent: transparent
+);
+
+:root {
+  @each $key, $val in $app-colors {
+    #{"--q-" + $key}: $val;
+  }
+}

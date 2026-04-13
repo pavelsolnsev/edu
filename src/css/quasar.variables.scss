@@ -1,0 +1,77 @@
+// Quasar SCSS (& Sass) Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass/SCSS variables found in Quasar's source Sass/SCSS files.
+
+// Check documentation for full list of Quasar variables
+
+// Your own variables (that are declared here) and Quasar's own
+// ones will be available out of the box in your .vue/.scss/.sass files
+
+// It's highly recommended to change the default colors
+// to match your app's branding.
+// Tip: Use the "Theme Builder" on Quasar's documentation website.
+
+// Breakpoints
+$breakpoint-xs: 599px;
+$breakpoint-sm: 1023px;
+$breakpoint-md: 1439px;
+$breakpoint-lg: 1919px;
+
+// Typography
+$typography-font-family: 'Montserrat', '-apple-system', 'Helvetica Neue', Helvetica, Arial,
+  sans-serif;
+$body-font-size: 16px;
+$body-line-height: 1.5;
+$text-weights: (
+  // thin: 100,
+  // light: 300,
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  // bolder: 900,
+);
+
+$typographics: (
+  base: (
+    h1-banner:  (size: 72, line-height: 80, letter: -0.06rem,  weight: 600, tag: 1),
+    h1:         (size: 48, line-height: 56, letter: normal,    weight: 600, tag: 1),
+    h2:         (size: 40, line-height: 48, letter: normal,    weight: 600, tag: 1),
+    h3:         (size: 32, line-height: 40, letter: normal,    weight: 600, tag: 1),
+    h4:         (size: 24, line-height: 32, letter: normal,    weight: 600, tag: 1),
+    h5:         (size: 18, line-height: 22, letter: normal,    weight: 600, tag: 1),
+    h6:         (size: 16, line-height: 24, letter: normal,    weight: 600, tag: 1),
+    xl:         (size: 24, line-height: 32, letter: normal,    weight: 0,   tag: 0),
+    l:          (size: 18, line-height: 22, letter: normal,    weight: 0,   tag: 0),
+    m:          (size: 16, line-height: 24, letter: normal,    weight: 0,   tag: 0),
+    s:          (size: 14, line-height: 18, letter: normal,    weight: 0,   tag: 0),
+    xs:         (size: 12, line-height: 18, letter: normal,    weight: 0,   tag: 0),
+    button-l:   (size: 24, line-height: 32, letter: normal,    weight: 500, tag: 0),
+    button-m:   (size: 16, line-height: 16, letter: normal,    weight: 600, tag: 0),
+    button-s:   (size: 14, line-height: 18, letter: normal,    weight: 500, tag: 0),
+    card-l:     (size: 48, line-height: 48, letter: normal,    weight: 600, tag: 0),
+  ),
+  mobile: (
+    h1-banner:  (size: 32, line-height: 40, letter: normal,    weight: 600, tag: 1),
+    h1:         (size: 40, line-height: 48, letter: normal,    weight: 600, tag: 1),
+    h2:         (size: 32, line-height: 40, letter: normal,    weight: 600, tag: 1),
+    h3:         (size: 24, line-height: 32, letter: normal,    weight: 600, tag: 1),
+    h4:         (size: 18, line-height: 22, letter: normal,    weight: 600, tag: 1),
+    h5:         (size: 16, line-height: 24, letter: normal,    weight: 600, tag: 1),
+    h6:         (size: 14, line-height: 18, letter: normal,    weight: 500, tag: 1),
+    xl:         (size: 18, line-height: 22, letter: normal,    weight: 0,   tag: 0),
+    l:          (size: 16, line-height: 24, letter: normal,    weight: 0,   tag: 0),
+    m:          (size: 16, line-height: 24, letter: normal,    weight: 0,   tag: 0),
+    s:          (size: 14, line-height: 18, letter: normal,    weight: 0,   tag: 0),
+    xs:         (size: 12, line-height: 18, letter: normal,    weight: 0,   tag: 0),
+    button-l:   (size: 24, line-height: 32, letter: normal,    weight: 500, tag: 0),
+    button-m:   (size: 16, line-height: 16, letter: normal,    weight: 600, tag: 0),
+    button-s:   (size: 14, line-height: 18, letter: normal,    weight: 500, tag: 0),
+    card-l:     (size: 48, line-height: 48, letter: normal,    weight: 600, tag: 0),
+  )
+);
+
+// Buttons
+$generic-border-radius: 8px;
+$button-border-radius: 8px;

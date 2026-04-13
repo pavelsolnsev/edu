@@ -1,0 +1,9 @@
+// Отступы
+:root {
+  @for $i from 1 through 40 {
+    // Padding vars, i - step, i * 4 - size in px from figma
+    #{"--a-padding--x" + $i}: #{rem($i * 4)};
+    // Margin vars
+    #{"--a-margin--x" + $i}: #{rem($i * 4)};
+  }
+}
